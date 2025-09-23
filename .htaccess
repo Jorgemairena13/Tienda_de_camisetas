@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    # Activar rewrite
+    RewriteEngine On
+
+    # Página de error personalizada
+    ErrorDocument 404 /master-php/proyecto-php-poo/error/
+
+    # Si no es un directorio ni un archivo físico
+    RewriteCond %{SCRIPT_FILENAME} !-d
+    RewriteCond %{SCRIPT_FILENAME} !-f
+
+    # Redirección a index.php con parámetros controller y action
+    RewriteRule ^([^/]+)/([^/]+)/?$ index.php?controller=$1&action=$2 [L]
+</IfModule>
