@@ -106,7 +106,7 @@ class Producto {
                 '{$this->getStock()}', 
                 null, 
                 CURDATE(),
-                null);";
+                '{$this->getImagen()}');";
 
     $save = $this->db->query($sql);
 
