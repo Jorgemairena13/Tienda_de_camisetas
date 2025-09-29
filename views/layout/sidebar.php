@@ -1,5 +1,14 @@
 <!-- Barra lateral -->
 <aside id="lateral" role="complementary" aria-label="Barra lateral">
+    <div id="carrito" class="block_aside">
+        <h3>Mi carrito</h3>
+        <ul>
+            <?php $stas = Utils::statsCarrito()?>
+            <li><a href="<?=base_url?>carrito/index">🛒 Ver carrito</a></li>
+            <li><a href="<?=base_url?>carrito/index">🛍️ Total de productos <?=$stas['count']?></a></li>
+            <li><a href="<?=base_url?>carrito/index">🛍️ Total: <?=$stas['total']?>$</a></li>
+        </ul>
+    </div>
     <div id="login" class="block_aside">
         <?php if(!isset($_SESSION['identity'])):?>
         <h3>Acceso de Usuario</h3>
@@ -55,3 +64,5 @@
         </ul>
     </div>
 </aside>
+
+<div id="central">

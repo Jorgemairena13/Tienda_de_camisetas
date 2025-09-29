@@ -1,0 +1,71 @@
+
+<?php
+require_once 'models/producto.php';
+class CarritoController
+{
+    public function index()
+    {   if(isset($_SESSION['carrito'])){
+        $carrito = $_SESSION['carrito'];
+        require_once 'views/carrito/index.php';
+        
+    }else{
+        echo "No hay nada en el carrito";
+    }
+        
+        
+    }
+
+    public function add()
+    {
+        if (isset($_GET['id'])) {
+            $producto_id = $_GET['id'];
+        } else {
+            header('Location: ' . base_url);
+            return;
+        }
+
+        // Inicializar carrito si no existe
+        if (!isset($_SESSION['carrito'])) {
+            $_SESSION['carrito'] = array();
+        }
+
+        // Verificar si el producto ya está en el carrito
+        $found = false;
+        foreach ($_SESSION['carrito'] as &$item) {
+            if ($item['id_producto'] == $producto_id) {
+                $item['unidades']++;
+                $found = true;
+                break;
+            }
+        }
+
+        // Si no estaba, añadirlo
+        if (!$found) {
+            $producto = new Producto;
+            $producto->setId($producto_id);
+            $producto = $producto->getOne();
+
+            if (is_object($producto)) {
+                $_SESSION['carrito'][] = array(
+                    "id_producto" => $producto->id,
+                    "precio" => $producto->precio,
+                    "unidades" => 1,
+                    "producto" => $producto
+                );
+            }
+        }
+
+        header('Location: ' . base_url . 'carrito/index');
+    }
+
+
+    public function remove() {}
+
+    public function deleteAll() 
+    {
+        unset($_SESSION['carrito']);
+    }
+}
+
+
+?>

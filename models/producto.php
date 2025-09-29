@@ -96,25 +96,81 @@ class Producto {
         return $productos;
     }
 
-    public function save(){
-    $sql = "INSERT INTO productos (id, categoria_id, nombre, descripcion, precio, stock, oferta, fecha, imagen) 
-        VALUES (NULL, 
-                '{$this->getCategoria_id()}', 
-                '{$this->getNombre()}', 
-                '{$this->getDescripcion()}', 
-                '{$this->getPrecio()}', 
-                '{$this->getStock()}', 
-                null, 
-                CURDATE(),
-                '{$this->getImagen()}');";
-
-    $save = $this->db->query($sql);
-
-    $result = false;
-    if($save){
-        $result = true;
+    public function getOne(){
+        $producto = $this->db->query("SELECT * FROM productos WHERE id={$this->getId()};");
+        return $producto->fetch_object();
     }
-    return $result;
+
+    public function getRamdom($limit){
+        $productos = $this->db->query("SELECT * from PRODUCTOS ORDER BY RAND() LIMIT $limit;");
+        return $productos;
+    }
+
+    public function getAllCategory(){
+        $sql = "SELECT p.*, c.nombre as 'catnombre'  FROM productos as p "
+                ."INNER JOIN categorias as c ON c.id = p.categoria_id"
+                ." WHERE p.categoria_id = {$this->getCategoria_id()} "
+                ."ORDER BY p.id DESC;";
+
+        $productos = $this->db->query($sql);
+        return $productos;
+    }
+
+    public function save(){
+        $sql = "INSERT INTO productos (id, categoria_id, nombre, descripcion, precio, stock, oferta, fecha, imagen) 
+            VALUES (NULL, 
+                    '{$this->getCategoria_id()}', 
+                    '{$this->getNombre()}', 
+                    '{$this->getDescripcion()}', 
+                    '{$this->getPrecio()}', 
+                    '{$this->getStock()}', 
+                    null, 
+                    CURDATE(),
+                    '{$this->getImagen()}');";
+
+        $save = $this->db->query($sql);
+
+        $result = false;
+        if($save){
+            $result = true;
+        }
+        return $result;
+        }
+
+
+    public function edit(){
+        $sql = "UPDATE productos SET 
+                    nombre ='{$this->getNombre()}', 
+                    descripcion ='{$this->getDescripcion()}', 
+                    precio='{$this->getPrecio()}',  
+                    stock = '{$this->getStock()}',
+                    categoria_id = '{$this->getCategoria_id()}'";
+                    
+        if($this->getImagen() != null){
+            $sql .= ", imagen = '{$this->getImagen()}'";
+        }    
+        
+        $sql .= "WHERE id={$this->getId()} ";
+
+        $sql .= ");";
+
+        $save = $this->db->query($sql);
+
+        $result = false;
+        if($save){
+            $result = true;
+        }
+        return $result;
+        }
+
+    public function delete(){
+        $sql = "DELETE FROM productos WHERE id={$this->id}";
+        $delete = $this->db->query($sql);
+        $result = false;
+        if($delete){
+            $result = true;
+        }
+        return $result;
     }
 
 

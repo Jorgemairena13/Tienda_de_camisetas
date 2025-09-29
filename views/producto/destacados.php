@@ -1,43 +1,29 @@
 
-           
+<!-- Contenido central -->
+            
+                <h1>Algunos  de nuestros productos</h1>
+                <?php while($product = $productos->fetch_object()): ?>
 
-            <!-- Contenido central -->
-            <main id="central" role="main">
-                <h1>Nuestras Camisetas</h1>
+                    <article class="product">
+                        <h2><?=$product->nombre?></h2>
+                        <div class="product-image">
+                            <a href="<?=base_url?>producto/ver&id=<?=$product->id?>">
+                                <?php if($product->imagen != null): ?>
+                                    <img src="<?=base_url?>uploads/images/<?=$product->imagen?>" 
+                                    alt="<?=$product->nombre?>" loading="lazy">
+                                <?php else:?>
+                                    <img src="<?=base_url?>/assets/img/camiseta.png" alt="Camiseta por defecto">
+                                <?php endif;?>
+                            </a>
+                        </div>
+                        <p class="price"><?=$product->precio?> €</p>
+                        <div class="product-footer">
+                            <a href="<?=base_url?>carrito/add&id=<?=$product->id?>" class="button">Comprar</a>
+                        </div>
+                    </article>
+
+                <?php endwhile; ?>
                 
-                <article class="product">
-                    <a href="#" aria-label="Ver detalles de Camiseta Azul Oversize">
-                        <img src="assets/img/camiseta.png" alt="Camiseta Azul Oversize" loading="lazy">
-                        <h2>Camiseta Azul Oversize</h2>
-                        <p>30 euros</p>
-                    </a>
-                    <a href="#" class="button">Comprar</a>
-                </article>
 
-                <article class="product">
-                    <a href="#" aria-label="Ver detalles de Camiseta Roja Vintage">
-                        <img src="assets/img/camiseta.png" alt="Camiseta Roja Vintage" loading="lazy">
-                        <h2>Camiseta Roja Vintage</h2>
-                        <p>25 euros</p>
-                    </a>
-                    <a href="#" class="button">Comprar</a>
-                </article>
-
-                <article class="product">
-                    <a href="#" aria-label="Ver detalles de Camiseta Verde Deportiva">
-                        <img src="assets/img/camiseta.png" alt="Camiseta Verde Deportiva" loading="lazy">
-                        <h2>Camiseta Verde Deportiva</h2>
-                        <p>35 euros</p>
-                    </a>
-                    <a href="#" class="button">Comprar</a>
-                </article>
-
-                <article class="product">
-                    <a href="#" aria-label="Ver detalles de Camiseta Negra Clásica">
-                        <img src="assets/img/camiseta.png" alt="Camiseta Negra Clásica" loading="lazy">
-                        <h2>Camiseta Negra Clásica</h2>
-                        <p>28 euros</p>
-                    </a>
-                    <a href="#" class="button">Comprar</a>
-                </article>
-            </main>
+                
+            

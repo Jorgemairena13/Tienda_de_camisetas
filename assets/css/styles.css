@@ -1,0 +1,834 @@
+/* ====================================
+   CSS MODERNO PARA TIENDA ONLINE
+   ====================================*/
+
+/* IMPORTAMOS FUENTES MODERNAS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ====================================
+   VARIABLES CSS (Custom Properties)
+   ====================================*/
+:root {
+  /* Colores principales - Paleta moderna */
+  --primary-color: #6366f1;        /* Índigo moderno */
+  --primary-hover: #4f46e5;        
+  --secondary-color: #10b981;       /* Verde esmeralda */
+  --accent-color: #f59e0b;          /* Ámbar */
+  
+  /* Colores neutros */
+  --bg-color: #fafafa;
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  
+  /* Estados */
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+  
+  /* Tipografía */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Bordes y sombras */
+  --border-radius: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Transiciones */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+}
+
+/* ====================================
+   RESET Y ESTILOS GENERALES
+   ====================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--gray-700);
+  background: linear-gradient(135deg, var(--bg-color) 0%, #ffffff 100%);
+  min-height: 100vh;
+}
+
+/* Enlaces modernos */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:visited {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Estados de alerta modernos */
+.alert_green {
+  color: var(--success-color);
+  font-weight: 500;
+}
+
+.alert_red {
+  color: var(--error-color);
+  font-weight: 500;
+}
+
+/* Tablas modernas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin: var(--spacing-lg) 0;
+}
+
+td, th {
+  padding: var(--spacing-md);
+  text-align: center;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+th {
+  background: var(--gray-50);
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+tr:hover {
+  background: var(--gray-50);
+  transition: background-color var(--transition-fast);
+}
+
+.thumb {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+/* ====================================
+   LAYOUT PRINCIPAL
+   ====================================*/
+#container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+/* ====================================
+   HEADER MODERNO
+   ====================================*/
+#header {
+  background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+  padding: var(--spacing-xl);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+#logo img {
+  height: 60px;
+  width: auto;
+  border-radius: var(--border-radius);
+}
+
+#logo a {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  text-shadow: none;
+  transition: all var(--transition-normal);
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#logo a:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.3));
+  text-decoration: none;
+}
+
+/* ====================================
+   NAVEGACIÓN MODERNA
+   ====================================*/
+#menu {
+  background: var(--gray-900);
+  border-bottom: 3px solid var(--primary-color);
+  padding: 0;
+}
+
+#menu ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#menu ul li {
+  border-right: 1px solid var(--gray-700);
+}
+
+#menu ul li:last-child {
+  border-right: none;
+}
+
+#menu a {
+  display: block;
+  color: var(--white);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+#menu a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left var(--transition-normal);
+}
+
+#menu a:hover {
+  background: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+#menu a:hover::before {
+  left: 100%;
+}
+
+/* ====================================
+   CONTENIDO PRINCIPAL
+   ====================================*/
+#content {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  min-height: 600px;
+}
+
+/* ====================================
+   BARRA LATERAL MODERNA
+   ====================================*/
+#lateral {
+  background: var(--gray-50);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  height: fit-content;
+  position: sticky;
+  top: var(--spacing-xl);
+}
+
+#lateral .block_aside {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+}
+
+#lateral h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+#lateral ul {
+  margin: var(--spacing-md) 0;
+}
+
+#lateral ul li {
+  list-style: none;
+  padding: var(--spacing-sm) 0;
+  position: relative;
+  padding-left: var(--spacing-lg);
+  transition: color var(--transition-fast);
+}
+
+#lateral ul li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-size: var(--font-size-xs);
+  transition: transform var(--transition-fast);
+}
+
+#lateral ul li:hover {
+  color: var(--primary-color);
+}
+
+#lateral ul li:hover::before {
+  transform: translateX(4px);
+}
+
+/* ====================================
+   FORMULARIOS MODERNOS
+   ====================================*/
+.form_container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-bottom: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+  background: var(--white);
+  font-family: var(--font-primary);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Botones modernos */
+input[type="button"],
+input[type="submit"],
+button,
+.button {
+  display: inline-block;
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  font-family: var(--font-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover,
+input[type="submit"]:hover,
+button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.button {
+  background: var(--secondary-color);
+}
+
+.button:hover {
+  background: #059669;
+}
+
+.button-small {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+.button-red {
+  background: var(--error-color);
+}
+
+.button-red:hover {
+  background: #dc2626;
+}
+
+.button-gestion {
+  margin: var(--spacing-sm) 0;
+}
+
+/* ====================================
+   CONTENIDO CENTRAL
+   ====================================*/
+#central {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+#central h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  color: var(--gray-800);
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--gray-200);
+  position: relative;
+}
+
+#central h1::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+/* ====================================
+   PRODUCTOS MODERNOS
+   ====================================*/
+/* Grid de productos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+}
+
+.product {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.product::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform var(--transition-normal);
+}
+
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product:hover::before {
+  transform: scaleX(1);
+}
+
+.product a {
+  color: var(--gray-800);
+  text-decoration: none;
+}
+
+.product a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+  transition: transform var(--transition-normal);
+}
+
+.product:hover img {
+  transform: scale(1.05);
+}
+
+.img_carrito {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin: var(--spacing-md) auto;
+  display: block;
+}
+
+.product h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--gray-800);
+}
+
+.product p {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Botón dentro de cada producto */
+.product .button {
+  margin-top: auto;
+  align-self: center;
+  min-width: 150px;
+  background: var(--secondary-color);
+  color: var(--white);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.5px;
+}
+
+/* Detalle de producto */
+#detail-product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+#detail-product .image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+#detail-product .data {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+#detail-product .description {
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  color: var(--gray-600);
+}
+
+#detail-product .price {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Botón específico para detalle de producto */
+#detail-product .button {
+  max-width: 250px;
+  background: var(--secondary-color);
+  color: var(--white);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--font-size-base);
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+#detail-product .button:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ====================================
+   CARRITO MODERNO
+   ====================================*/
+.delete-carrito,
+.total-carrito {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+}
+
+.button-delete,
+.button-pedido {
+  min-width: 120px;
+}
+
+.button-carrito {
+  padding: var(--spacing-sm) var(--spacing-md);
+  min-width: 80px;
+  text-align: center;
+}
+
+.updown-unidades {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  justify-content: center;
+}
+
+.updown-unidades .button {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+/* ====================================
+   FOOTER MODERNO
+   ====================================*/
+#footer {
+  background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+  color: var(--white);
+  text-align: center;
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  border-top: 3px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+#footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), var(--secondary-color), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+#footer p {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Footer responsive */
+@media (max-width: 768px) {
+  #footer {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+
+/* ====================================
+   RESPONSIVE DESIGN
+   ====================================*/
+/* Tablets */
+@media (max-width: 1024px) {
+  #container {
+    width: 95%;
+  }
+  
+  #content {
+    grid-template-columns: 250px 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  #detail-product {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
+  /* Móviles */
+@media (max-width: 768px) {
+  #container {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  #header {
+    padding: var(--spacing-lg);
+  }
+  
+  #logo {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+  
+  #logo a {
+    font-size: var(--font-size-2xl);
+  }
+  
+  #menu ul {
+    flex-direction: column;
+  }
+  
+  #menu ul li {
+    border-right: none;
+    border-bottom: 1px solid var(--gray-700);
+  }
+  
+  #menu a {
+    padding: var(--spacing-md);
+    text-align: center;
+  }
+  
+  #content {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-lg);
+  }
+  
+  #lateral {
+    position: static;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  #central {
+    padding: var(--spacing-lg);
+  }
+  
+  #central h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  /* Grid de productos responsive */
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .product {
+    margin: 0 0 var(--spacing-lg) 0;
+  }
+  
+  .form_container {
+    width: 100%;
+  }
+  
+  .delete-carrito,
+  .total-carrito {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+  }
+  
+  .button-delete,
+  .button-pedido {
+    width: 100%;
+  }
+  
+  /* Footer responsive ya añadido arriba */
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  :root {
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+  }
+  
+  #header {
+    padding: var(--spacing-md);
+  }
+  
+  #logo a {
+    font-size: var(--font-size-xl);
+  }
+  
+  #central {
+    padding: var(--spacing-md);
+  }
+  
+  .product img {
+    height: 150px;
+  }
+}
