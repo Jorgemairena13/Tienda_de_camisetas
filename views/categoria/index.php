@@ -9,8 +9,8 @@
     </tr>
 <?php while($cat = $categorias->fetch_object()) : ?>
     <tr>
-        <td><?=$cat->id;?></td>
-        <td><?=$cat->nombre;?></td>
+        <td  data-label="ID"><?=$cat->id;?></td>
+        <td  data-label="Nombre"><?=$cat->nombre;?></td>
         
     </tr>
 <?php endwhile;?>

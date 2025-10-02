@@ -1,21 +1,12 @@
-/* ====================================
-   CSS MODERNO PARA TIENDA ONLINE
-   ====================================*/
-
 /* IMPORTAMOS FUENTES MODERNAS */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ====================================
-   VARIABLES CSS (Custom Properties)
-   ====================================*/
 :root {
-  /* Colores principales - Paleta moderna */
-  --primary-color: #6366f1;        /* Índigo moderno */
+  --primary-color: #6366f1;        
   --primary-hover: #4f46e5;        
-  --secondary-color: #10b981;       /* Verde esmeralda */
-  --accent-color: #f59e0b;          /* Ámbar */
+  --secondary-color: #10b981;      
+  --accent-color: #f59e0b;          
   
-  /* Colores neutros */
   --bg-color: #fafafa;
   --white: #ffffff;
   --gray-50: #f9fafb;
@@ -28,12 +19,10 @@
   --gray-800: #1f2937;
   --gray-900: #111827;
   
-  /* Estados */
   --success-color: #10b981;
   --error-color: #ef4444;
   --warning-color: #f59e0b;
   
-  /* Tipografía */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -42,9 +31,7 @@
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
   
-  /* Espaciado */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -52,7 +39,6 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
   
-  /* Bordes y sombras */
   --border-radius: 0.5rem;
   --border-radius-lg: 0.75rem;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -60,15 +46,12 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   
-  /* Transiciones */
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 300ms ease-in-out;
   --transition-slow: 500ms ease-in-out;
 }
 
-/* ====================================
-   RESET Y ESTILOS GENERALES
-   ====================================*/
+/* RESET Y ESTILOS GENERALES */
 * {
   margin: 0;
   padding: 0;
@@ -88,7 +71,6 @@ body {
   min-height: 100vh;
 }
 
-/* Enlaces modernos */
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -104,7 +86,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Estados de alerta modernos */
 .alert_green {
   color: var(--success-color);
   font-weight: 500;
@@ -115,7 +96,7 @@ a:hover {
   font-weight: 500;
 }
 
-/* Tablas modernas */
+/* TABLAS */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -150,9 +131,7 @@ tr:hover {
   border-radius: var(--border-radius);
 }
 
-/* ====================================
-   LAYOUT PRINCIPAL
-   ====================================*/
+/* LAYOUT PRINCIPAL */
 #container {
   max-width: 1200px;
   width: 90%;
@@ -163,9 +142,7 @@ tr:hover {
   overflow: hidden;
 }
 
-/* ====================================
-   HEADER MODERNO
-   ====================================*/
+/* HEADER */
 #header {
   background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
   padding: var(--spacing-xl);
@@ -190,7 +167,6 @@ tr:hover {
   letter-spacing: -0.025em;
   color: var(--primary-color);
   text-transform: uppercase;
-  text-shadow: none;
   transition: all var(--transition-normal);
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
@@ -204,9 +180,7 @@ tr:hover {
   text-decoration: none;
 }
 
-/* ====================================
-   NAVEGACIÓN MODERNA
-   ====================================*/
+/* NAVEGACIÓN */
 #menu {
   background: var(--gray-900);
   border-bottom: 3px solid var(--primary-color);
@@ -260,9 +234,7 @@ tr:hover {
   left: 100%;
 }
 
-/* ====================================
-   CONTENIDO PRINCIPAL
-   ====================================*/
+/* CONTENIDO PRINCIPAL */
 #content {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -271,9 +243,7 @@ tr:hover {
   min-height: 600px;
 }
 
-/* ====================================
-   BARRA LATERAL MODERNA
-   ====================================*/
+/* BARRA LATERAL */
 #lateral {
   background: var(--gray-50);
   border-radius: var(--border-radius-lg);
@@ -330,9 +300,7 @@ tr:hover {
   transform: translateX(4px);
 }
 
-/* ====================================
-   FORMULARIOS MODERNOS
-   ====================================*/
+/* FORMULARIOS */
 .form_container {
   max-width: 500px;
   margin: 0 auto;
@@ -374,7 +342,7 @@ textarea:focus {
   transform: translateY(-1px);
 }
 
-/* Botones modernos */
+/* BOTONES */
 input[type="button"],
 input[type="submit"],
 button,
@@ -393,6 +361,7 @@ button,
   font-family: var(--font-primary);
   position: relative;
   overflow: hidden;
+  margin-top: 0;
 }
 
 .button:hover,
@@ -430,9 +399,7 @@ button:hover {
   margin: var(--spacing-sm) 0;
 }
 
-/* ====================================
-   CONTENIDO CENTRAL
-   ====================================*/
+/* CONTENIDO CENTRAL */
 #central {
   background: var(--white);
   border-radius: var(--border-radius-lg);
@@ -462,10 +429,7 @@ button:hover {
   background: var(--primary-color);
 }
 
-/* ====================================
-   PRODUCTOS MODERNOS
-   ====================================*/
-/* Grid de productos */
+/* PRODUCTOS */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -554,7 +518,6 @@ button:hover {
   margin-bottom: var(--spacing-lg);
 }
 
-/* Botón dentro de cada producto */
 .product .button {
   margin-top: auto;
   align-self: center;
@@ -567,7 +530,7 @@ button:hover {
   letter-spacing: 0.5px;
 }
 
-/* Detalle de producto */
+/* DETALLE DE PRODUCTO */
 #detail-product {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -600,7 +563,6 @@ button:hover {
   color: var(--primary-color);
 }
 
-/* Botón específico para detalle de producto */
 #detail-product .button {
   max-width: 250px;
   background: var(--secondary-color);
@@ -622,9 +584,7 @@ button:hover {
   box-shadow: var(--shadow-lg);
 }
 
-/* ====================================
-   CARRITO MODERNO
-   ====================================*/
+/* CARRITO */
 .delete-carrito,
 .total-carrito {
   display: flex;
@@ -662,9 +622,7 @@ button:hover {
   font-weight: 600;
 }
 
-/* ====================================
-   FOOTER MODERNO
-   ====================================*/
+/* FOOTER */
 #footer {
   background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
   color: var(--white);
@@ -698,17 +656,9 @@ button:hover {
   opacity: 0.9;
 }
 
-/* Footer responsive */
-@media (max-width: 768px) {
-  #footer {
-    padding: var(--spacing-lg) var(--spacing-md);
-  }
-}
-
 /* ====================================
-   RESPONSIVE DESIGN
+   RESPONSIVE - TABLETS
    ====================================*/
-/* Tablets */
 @media (max-width: 1024px) {
   #container {
     width: 95%;
@@ -723,9 +673,27 @@ button:hover {
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
   }
+  
+  /* Carrito en tablets */
+  table td, table th {
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+  }
+  
+  .img_carrito {
+    height: 60px;
+    width: 60px;
+  }
+  
+  .thumb {
+    width: 60px;
+    height: 60px;
+  }
 }
 
-  /* Móviles */
+/* ====================================
+   RESPONSIVE - MÓVILES
+   ====================================*/
 @media (max-width: 768px) {
   #container {
     width: 100%;
@@ -779,7 +747,6 @@ button:hover {
     font-size: var(--font-size-2xl);
   }
   
-  /* Grid de productos responsive */
   .products-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
@@ -793,22 +760,130 @@ button:hover {
     width: 100%;
   }
   
+  /* ====================================
+     CARRITO ESTILO TARJETAS EN MÓVIL
+     ====================================*/
+  
+  /* Ocultamos thead en móvil */
+  table thead {
+    display: none;
+  }
+  
+  /* Convertimos la tabla en bloques */
+  table, 
+  table tbody, 
+  table tr {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Cada fila es una tarjeta */
+  table tr {
+    margin-bottom: var(--spacing-lg);
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-lg);
+    border: 2px solid var(--gray-200);
+    position: relative;
+  }
+  
+  table tr:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    transition: all var(--transition-normal);
+  }
+  
+  /* Cada celda como bloque */
+  table td {
+    display: block;
+    text-align: left;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--gray-100);
+    position: relative;
+    padding-left: 120px;
+    min-height: 40px;
+  }
+  
+  table td:last-child {
+    border-bottom: none;
+    padding-bottom: var(--spacing-md);
+  }
+  
+  /* Etiquetas antes de cada dato */
+  table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+    color: var(--gray-800);
+    width: 110px;
+    padding-right: var(--spacing-sm);
+  }
+  
+  /* Imagen destacada */
+  table td:first-child {
+    text-align: center;
+    padding-left: 0;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--gray-200);
+  }
+  
+  table td:first-child::before {
+    display: none;
+  }
+  
+  .img_carrito {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+  }
+  
+  /* Ajustes de botones en tarjetas */
+  .updown-unidades {
+    justify-content: flex-start;
+  }
+  
+  .button-carrito {
+    min-width: 100px;
+  }
+  
+  /* Controles del carrito */
   .delete-carrito,
   .total-carrito {
     flex-direction: column;
     align-items: stretch;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
   }
   
   .button-delete,
   .button-pedido {
     width: 100%;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-base);
   }
   
-  /* Footer responsive ya añadido arriba */
+  .total-carrito {
+    background: var(--gray-50);
+    border-radius: var(--border-radius-lg);
+    border: 2px solid var(--primary-color);
+    padding: var(--spacing-lg);
+  }
+  
+  .total-carrito h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  #footer {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
 }
 
-/* Móviles pequeños */
+/* ====================================
+   RESPONSIVE - MÓVILES PEQUEÑOS
+   ====================================*/
 @media (max-width: 480px) {
   :root {
     --spacing-lg: 1rem;
@@ -831,22 +906,30 @@ button:hover {
   .product img {
     height: 150px;
   }
-}
-.table-responsive {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch; /* para suavizar el scroll en iOS */
-}
-
-.table-responsive table {
-  width: 100%;
-  min-width: 600px; /* garantiza que la tabla no se comprima demasiado */
-}
-
-/* Opcional: quitar padding lateral en móviles pequeños */
-@media (max-width: 480px) {
-  .table-responsive {
-    margin-left: -10px;
-    margin-right: -10px;
+  
+  /* Tarjetas del carrito más compactas */
+  table tr {
+    padding: var(--spacing-md);
+  }
+  
+  table td {
+    padding-left: 100px;
+    font-size: var(--font-size-sm);
+  }
+  
+  table td::before {
+    width: 90px;
+    font-size: var(--font-size-xs);
+  }
+  
+  .img_carrito {
+    height: 80px;
+    width: 80px;
+  }
+  
+  .updown-unidades .button {
+    min-width: 28px;
+    height: 28px;
+    font-size: var(--font-size-xs);
   }
 }

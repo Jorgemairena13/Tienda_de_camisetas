@@ -25,20 +25,17 @@
         <th>Precio</th>
         <th>Stock</th>
         <th>Acciones</th>
-        
     </tr>
 <?php while($producto = $productos->fetch_object()) : ?>
     <tr>
-        <td><?=$producto->id;?></td>
-        <td><?=$producto->nombre;?></td>
-        <td><?=$producto->precio;?></td>
-        <td><?=$producto->stock;?></td>
-        <td>
+        <td data-label="ID"><?=$producto->id;?></td>
+        <td data-label="Nombre"><?=$producto->nombre;?></td>
+        <td data-label="Precio"><?=$producto->precio;?></td>
+        <td data-label="Stock"><?=$producto->stock;?></td>
+        <td data-label="Acciones">
             <a href="<?=base_url?>producto/editar&id=<?=$producto->id?>" class="button button-gestion">Editar</a>
             <a href="<?=base_url?>producto/eliminar&id=<?=$producto->id?>" class="button button-gestion button-red">Eliminar</a>
         </td>
-        
     </tr>
 <?php endwhile;?>
-
 </table>

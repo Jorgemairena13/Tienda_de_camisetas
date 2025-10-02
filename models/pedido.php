@@ -1,5 +1,7 @@
 <?php
 
+use LDAP\Result;
+
 class Pedido
 {
     private $id;
@@ -40,13 +42,11 @@ class Pedido
     }
     public function setUsuarioId($usuario_id)
     {
-        if(is_object($usuario_id)){
+        if (is_object($usuario_id)) {
             $this->usuario_id = (int)$usuario_id->id;
-        }else{
+        } else {
             $this->usuario_id = (int)$usuario_id;
         }
-
-        
     }
 
     // Provincia
@@ -119,6 +119,12 @@ class Pedido
         $this->hora = $hora;
     }
 
+    public function getAll()
+    {
+        $productos = $this->db->query("SELECT * FROM pedidos ORDER BY id DESC;");
+        return $productos;
+    }
+
 
     public function getOne()
     {
@@ -134,11 +140,12 @@ class Pedido
         return $pedido->fetch_object();
     }
 
-    public function getProductsByPedido($pedido_id){
+    public function getProductsByPedido($pedido_id)
+    {
 
         $sql = "SELECT pr.*,lp.unidades FROM productos pr "
-        . "INNER JOIN lineas_pedidos lp ON pr.id = lp.producto_id "
-        ."where lp.pedido_id={$pedido_id}";
+            . "INNER JOIN lineas_pedidos lp ON pr.id = lp.producto_id "
+            . "where lp.pedido_id={$pedido_id}";
         $productos = $this->db->query($sql);
 
         return $productos;
@@ -155,7 +162,7 @@ class Pedido
                     '{$this->getLocalidad()}', 
                     '{$this->getDireccion()}', 
                     '{$this->getCoste()}', 
-                    '{$this->getEstado()}', 
+                    'confirm', 
                     CURDATE(),
                     CURTIME());";
 
@@ -175,7 +182,7 @@ class Pedido
 
         if (!$query) return false;
 
-        $pedido_id = (int)$query->fetch_object()->pedido; 
+        $pedido_id = (int)$query->fetch_object()->pedido;
 
         $result = false;
 
@@ -203,5 +210,18 @@ class Pedido
         return $pedido;
     }
 
-    
+    public function updateOne()
+    {
+        $sql = "UPDATE pedidos SET estado='{$this->getEstado()}' ";
+        $sql .= " WHERE id={$this->getId()};";
+
+        $save = $this->db->query($sql);
+
+        $result = false;
+
+        if($save){
+            $result = true;
+        }
+        return $result;
+    }
 } //Fin clase

@@ -32,7 +32,7 @@
                 autocomplete="current-password"
                 placeholder="••••••••"
             >
-            <input type="submit" value="Iniciar Sesión">
+            <input type="submit" value="Iniciar Sesión" style="margin-top: 1rem;">
             
         </form>
         <?php else: ?>
@@ -50,7 +50,7 @@
             <!-- Mostrar botones solo en caso de que el usuario sea admin -->
             <?php if(isset($_SESSION['admin'])):?>
                 <li><a href="<?=base_url?>categorias/index">📂 Gestionar categorias</a></li>
-                <li><a href="<?=base_url?>producto/gestion">⚙️ Gestionar pedidos</a></li>
+                <li><a href="<?=base_url?>pedido/gestion">⚙️ Gestionar pedidos</a></li>
                 <li><a href="<?=base_url?>producto/gestion">🛒 Gestionar productos</a></li>
                 
             <?php endif?>
