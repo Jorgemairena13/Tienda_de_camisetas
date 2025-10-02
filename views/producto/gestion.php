@@ -18,7 +18,7 @@
 <?php endif ;?>
 
 <?php Utils::deleteSession('delete');?>
-<table border="1">
+<table border="1" class="table-responsive">
     <tr>
         <th>ID</th>
         <th>Nombre</th>

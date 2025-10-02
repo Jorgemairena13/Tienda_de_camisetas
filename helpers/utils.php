@@ -42,6 +42,15 @@ class Utils{
 
         return $stats;
     }
+
+    public static function isLoged(){
+        if(!isset($_SESSION['identity'])){
+            header("Location: ".base_url);
+        }else{
+            return true;
+        }
+
+    }
 }
 
 ?>

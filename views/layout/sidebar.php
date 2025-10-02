@@ -50,13 +50,13 @@
             <!-- Mostrar botones solo en caso de que el usuario sea admin -->
             <?php if(isset($_SESSION['admin'])):?>
                 <li><a href="<?=base_url?>categorias/index">📂 Gestionar categorias</a></li>
-                <li><a href="#">⚙️ Gestionar pedidos</a></li>
+                <li><a href="<?=base_url?>producto/gestion">⚙️ Gestionar pedidos</a></li>
                 <li><a href="<?=base_url?>producto/gestion">🛒 Gestionar productos</a></li>
                 
             <?php endif?>
             <!-- Solo mostrar boton si esta registrado -->
             <?php if(isset($_SESSION['identity'])):?>
-                <li><a href="#">📦 Mis pedidos</a></li>
+                <li><a href="<?=base_url?>pedido/misPedidos">📦 Mis pedidos</a></li>
                 <li><a href="<?=base_url.'usuario/logout'?>">⏻ Cerrar sesion</a></li>
             <?php else: ?>
                 <li><a href="<?=base_url.'usuario/registro'?>">Registrate aqui</a></li>

@@ -1,6 +1,6 @@
 <h1>Carrito de la compra</h1>
 
-<table>
+<table class="table-responsive">
     <tr>
         <th>Imagen</th>
         <th>Nombre</th>

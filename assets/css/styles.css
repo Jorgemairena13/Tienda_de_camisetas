@@ -832,3 +832,21 @@ button:hover {
     height: 150px;
   }
 }
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* para suavizar el scroll en iOS */
+}
+
+.table-responsive table {
+  width: 100%;
+  min-width: 600px; /* garantiza que la tabla no se comprima demasiado */
+}
+
+/* Opcional: quitar padding lateral en móviles pequeños */
+@media (max-width: 480px) {
+  .table-responsive {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}

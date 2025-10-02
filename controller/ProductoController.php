@@ -129,7 +129,7 @@ class ProductoController{
         } 
     public function ver(){
 
-        $id = $_GET['id'] ?? null;
+        $id = $_GET['id'];
         if ($id) {
             $producto = new Producto;
             $producto->setId($id);
@@ -138,8 +138,8 @@ class ProductoController{
             // Cargar la vista después de tener los datos
             require_once 'views/producto/ver.php';
         } else {
-            header("Location: ". base_url.'producto/gestion');
-            exit();
+            header("Location: ". base_url);
+            
         }
         }
 
